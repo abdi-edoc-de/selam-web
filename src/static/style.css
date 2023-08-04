@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;1,500&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "poppins", sans-serif;
+}
+.banner {
+    background: url("./image/banner1.jpg") no-repeat center center;
+    color: aliceblue;
+    background-size: cover;
+    height: 100vh;
+}
+
+.header-row {
+    height: 10%;
+}
+
+.header {
+    /* background-color: rgba(0, 0, 0, 0.2); */
+    color: #fff;
+    text-align: left;
+}
+
+.description {
+    /* background-color: rgba(0, 0, 0, 0.2); */
+}
+
+.description-div {
+
+    margin-top: 40%;
+    
+    padding: 20px;
+    padding-left: 15%;
+    border-radius: 10px;
+    /* background-color: rgba(0, 0, 0, 0.2); */
+    color: black;
+    text-align: left;
+}
+
+.description-div h1 {
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.description-div h2 {
+    font-size: 200%;
+    font-weight: 700;
+}
+
+.logo {
+    margin: 20px;
+    margin-left: 50px;
+}
+
+.login {
+    /* background: rgba(239, 113, 113, 0.3); */
+    width: 100%;
+    text-align: center;
+}
+
+.login-div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-image {
+    border-radius: 100%;
+    border: 0px solid #fff;
+}
+
+.login-form {
+    margin-top: 10%;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 80%;
+    padding: 7%;
+
+}
+
+.login-form-h1 {
+    margin-bottom: 7%;
+}
+
+.login-form-right {
+    float: right;
+}
+
+.login-form-left {
+    float: left;
+}
+
+.login-form-button {
+    width: 100%;
+}
+
+
