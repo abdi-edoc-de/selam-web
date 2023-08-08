@@ -48,13 +48,13 @@
 
 }
 
-.PaymentMethodItem__badge {
+.bank-lead {
     display: inline-block;
     width: 3px;
     height: 7px;
     margin-right: 4px;
 }
-.css-wdmi88 {
+.bank-lead-d {
     box-sizing: border-box;
     margin: 0px 0px 0px 0px;
     min-width: 0px;

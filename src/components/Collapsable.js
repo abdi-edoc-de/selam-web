@@ -60,7 +60,7 @@ const Card = () => {
           <span className="order-amount"> 10,000,000 </span>BR
         </Col>{" "}
         <Col xl={5} lg={5} md={5} sm={5} xs={24}>
-          <div class="PaymentMethodItem__badge css-wdmi88"></div>
+          <div class="bank-lead bank-lead-d"></div>
           <span className="order-bank"> Commercial Bank of Ethiopia </span>
         </Col>{" "}
         <Col xl={3} lg={3} md={3} sm={3} xs={24} className="order-right-row">
@@ -79,7 +79,8 @@ const Card = () => {
           <p></p>
         </Col>
         <Col xl={5} lg={5} md={5} sm={5} xs={24}>
-          <p className="order-bank">100023425689 </p>
+        <div class="bank-lead bank-lead-d"></div>
+          <span className="order-bank"> 100023425689</span>
         </Col>
         <Col xl={3} lg={3} md={3} sm={3} xs={24} className="order-right-row">
           <div class="order-total">60,000$ Total</div>
