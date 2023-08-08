@@ -1,94 +1,151 @@
-import React from 'react';
-import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
-import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import React, { useState } from "react";
+import "./static/layout.css";
+import Collapsable from "./components/Collapsable";
+import {
+  DesktopOutlined,
+  FileOutlined,
+  PieChartOutlined,
+  TeamOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
+import { Layout, Menu, theme, Image, Space } from "antd";
 const { Header, Content, Footer, Sider } = Layout;
-const items1 = ['1', '2', '3'].map((key) => ({
-  key,
-  label: `nav ${key}`,
-}));
-const items2 = [UserOutlined, LaptopOutlined, NotificationOutlined].map((icon, index) => {
-  const key = String(index + 1);
+function getItem(label, key, icon, children) {
   return {
-    key: `sub${key}`,
-    icon: React.createElement(icon),
-    label: `subnav ${key}`,
-    children: new Array(4).fill(null).map((_, j) => {
-      const subKey = index * 4 + j + 1;
-      return {
-        key: subKey,
-        label: `option${subKey}`,
-      };
-    }),
+    key,
+    icon,
+    children,
+    label,
   };
-});
+}
+const items = [
+  getItem("Option 1", "1", <PieChartOutlined />),
+  getItem("Option 2", "2", <DesktopOutlined />),
+  getItem("User", "sub1", <UserOutlined />, [
+    getItem("Tom", "3"),
+    getItem("Bill", "4"),
+    getItem("Alex", "5"),
+  ]),
+  getItem("Team", "sub2", <TeamOutlined />, [
+    getItem("Team 1", "6"),
+    getItem("Team 2", "8"),
+  ]),
+  getItem("Files", "9", <FileOutlined />),
+];
 const App = () => {
+  const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer },
   } = theme.useToken();
   return (
-    <Layout>
-      <Header
+    <Layout
+      style={{
+        backgroundColor: colorBgContainer,
+      }}
+    >
+      {/* <Header
         style={{
-          display: 'flex',
-          alignItems: 'center',
+          padding: 0,
+          minHeight: "15vh",
+          backgroundColor: colorBgContainer,
+          position: "sticky",
+          top: 0,
+          zIndex: 1,
+        }}
+        theme="light"
+      >
+        <Space className="logo-layout">
+          <Image
+            className="logo-image"
+            width={70}
+            preview={false}
+            src="/logo1.png"
+          ></Image>
+          <h2>Selam Express</h2>
+        </Space>
+      </Header> */}
+      <Layout
+        style={{
+          minHeight: "85vh",
+          backgroundColor: colorBgContainer,
         }}
       >
-        <div className="demo-logo" />
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} items={items1} />
-      </Header>
-      <Content
-        style={{
-          padding: '0 50px',
-        }}
-      >
-        <Breadcrumb
+        <Sider
+          collapsible
+          collapsed={collapsed}
+          width={"10vw"}
           style={{
-            margin: '16px 0',
-          }}
-        >
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
-          <Breadcrumb.Item>List</Breadcrumb.Item>
-          <Breadcrumb.Item>App</Breadcrumb.Item>
-        </Breadcrumb>
-        <Layout
-          style={{
-            padding: '24px 0',
             background: colorBgContainer,
+            position: "sticky",
+            top: 0,
+            zIndex: 1,
+            height: "100vh",
           }}
+          onCollapse={(value) => setCollapsed(value)}
         >
-          <Sider
+          {/* <Space className="logo-layout">
+            <Image
+              className="logo-image"
+              width={70}
+              preview={false}
+              src="/logo1.png"
+            ></Image> 
+            <h2 >Selam Express</h2>
+          </Space> */}
+          <Menu
+            style={{
+              border: "none",
+              marginTop: "30vh",
+
+            }}
+            theme="light"
+            defaultSelectedKeys={["1"]}
+            // mode="inline"
+            mode="vertical"
+            items={items}
+          />
+        </Sider>
+        <Layout>
+          <Header
+        style={{
+          padding: 0,
+          minHeight: "15vh",
+          backgroundColor: colorBgContainer,
+          position: "sticky",
+          top: 0,
+          zIndex: 1,
+        }}
+        theme="light"
+      >
+        <Space className="logo-layout">
+          <Image
+            className="logo-image"
+            width={50}
+            preview={false}
+            src="/logo1.png"
+          ></Image>
+          <h2>Selam Express</h2>
+        </Space>
+      </Header>
+          <Content
             style={{
               background: colorBgContainer,
             }}
-            width={200}
           >
-            <Menu
-              mode="inline"
-              defaultSelectedKeys={['1']}
-              defaultOpenKeys={['sub1']}
-              style={{
-                height: '100%',
-              }}
-              items={items2}
-            />
-          </Sider>
-          <Content
+            <div className="main-content">
+              <Collapsable />
+            </div>
+          </Content>
+          <Footer
             style={{
-              padding: '0 24px',
-              minHeight: 280,
+              textAlign: "center",
+              background: colorBgContainer,
             }}
           >
-            Content
-          </Content>
+            Ant Design ©2023 Created by Ant UED
+          </Footer>
         </Layout>
-      </Content>
-      <Footer
-        style={{
-          textAlign: 'center',
-        }}
-      >
-        Ant Design ©2023 Created by Ant UED
-      </Footer>
+      </Layout>
     </Layout>
   );
 };

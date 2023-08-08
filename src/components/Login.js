@@ -1,10 +1,15 @@
 import React from "react";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input, Row, Col } from "antd";
-import "./static/style.css";
+import "../static/style.css";
+import { useDispatch, useSelector } from "react-redux";
+import { login, getIsLogin } from "../store/auth";
+
 const App = () => {
+  const dispatch = useDispatch();
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
+    dispatch(login(values));
   };
   return (
     <Form
@@ -15,7 +20,7 @@ const App = () => {
       }}
       onFinish={onFinish}
     >
-        <h1 className="login-form-h1"> Sign In</h1>
+      <h1 className="login-form-h1"> Sign In</h1>
       <Form.Item
         name="username"
         rules={[

@@ -1,0 +1,39 @@
+.logo h2 {
+    font-size: 200%;
+    font-weight: 700;
+}
+
+.logo-layout {
+    /* padding:  10%; */
+    /* min-height: 100%; */
+    margin-bottom: 15px;
+    margin-top: 20px;
+    margin-left: 15px;
+}
+
+.ant-menu-item-selected {
+    background-color: #ECF0F1 !important;
+}
+
+.ant-layout-sider-trigger {
+    background-color: #ECF0F1 !important;
+}
+
+.anticon-left {
+    color: #010101 !important;
+}
+
+
+.main-content {
+    min-height: 100%;
+    background-color: white;
+    overflow: scroll;
+}
+
+.name {
+    color: #053969;
+}
+
+/* .ant-layout-sider-trigger{
+    display: none;
+} */
